@@ -1,7 +1,6 @@
 """
-    This program displays a kickball scoreboard and tracks the data
+    This program displays a kickball scoreboard
     This program was solely developed by Nater0214
-    Use of this program for commercial purposes is prohibited without permission
 """
 
 
