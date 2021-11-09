@@ -1,1 +1,0 @@
-{'team1': 'Nat', 'team2': 'Jul', 'score1': 0, 'score2': 0, 'inning_num': 1, 'inning_part': 1, 'balls': 0, 'strikes': 0, 'fouls': 0, 'outs': 0, 'b1': False, 'b2': False, 'b3': False}
