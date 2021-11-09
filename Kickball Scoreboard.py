@@ -1,9 +1,3 @@
-"""
-    This program displays a kickball scoreboard
-    This program was solely developed by Nater0214
-"""
-
-
 def preset_start():
     inp = input("First team: ")  # first team
     if len(inp) not in [2, 3]:
