@@ -1,26 +1,26 @@
 def preset_start():
-    inp = input("First team: ")  #first team
+    inp = input("First team: ") #first team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
     scoreboard_values["team1"] = inp.capitalize()
 
-    inp = input("Second team: ")  #second team
+    inp = input("Second team: ") #second team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
     scoreboard_values["team2"] = inp.capitalize()
 
-    txt = "{}'s Score: "  #first team's score
+    txt = "{}'s Score: " #first team's score
     inp = int(input(txt.format(scoreboard_values["team1"])))
     scoreboard_values["score1"] = inp
 
-    txt = "{}'s Score: "  #second team's score
+    txt = "{}'s Score: " #second team's score
     inp = int(input(txt.format(scoreboard_values["team2"])))
     scoreboard_values["score2"] = inp
 
-    inp = int(input("Inning: "))  #inning
+    inp = int(input("Inning: ")) #inning
     scoreboard_values["inning_num"] = inp
 
-    inp = input("'Top', 'Mid', 'Bot', or 'End': ")  #part of inning
+    inp = input("'Top', 'Mid', 'Bot', or 'End': ") #part of inning
     if inp == "Top":
         scoreboard_values["inning_part"] = 1
     elif inp == "Mid":
@@ -33,19 +33,19 @@ def preset_start():
         raise ValueError("Expected 'Top', 'Mid', 'Bot', or 'End'")
 
     if scoreboard_values["inning_part"] in [1, 3]:
-        inp = int(input("Balls: "))  #balls
+        inp = int(input("Balls: ")) #balls
         scoreboard_values["balls"] = inp
 
-        inp = int(input("Strikes: "))  #strikes
+        inp = int(input("Strikes: ")) #strikes
         scoreboard_values["strikes"] = inp
 
-        inp = int(input("Fouls: "))  #fouls
+        inp = int(input("Fouls: ")) #fouls
         scoreboard_values["fouls"] = inp
 
-        inp = int(input("Outs: "))  #outs
+        inp = int(input("Outs: ")) #outs
         scoreboard_values["outs"] = inp
 
-        inp = input("Runner on 1st? ")  #base 1
+        inp = input("Runner on 1st? ") #base 1
         if inp == "y":
             scoreboard_values["b1"] = True
         elif inp == "n":
@@ -53,7 +53,7 @@ def preset_start():
         else:
             raise ValueError("Expexted 'Yes' or 'No'")
 
-        inp = input("Runner on 2nd? ")  #base 2
+        inp = input("Runner on 2nd? ") #base 2
         if inp == "y":
             scoreboard_values["b2"] = True
         elif inp == "n":
@@ -61,7 +61,7 @@ def preset_start():
         else:
             raise ValueError("Expexted 'Yes' or 'No'")
 
-        inp = input("Runner on 3rd? ")  #base 3
+        inp = input("Runner on 3rd? ") #base 3
         if inp == "y":
             scoreboard_values["b3"] = True
         elif inp == "n":
@@ -79,12 +79,12 @@ def preset_start():
 
 
 def new_start():
-    inp = input("First team: ")  #first team
+    inp = input("First team: ") #first team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
     scoreboard_values["team1"] = inp.capitalize()
 
-    inp = input("Second team: ")  #second team
+    inp = input("Second team: ") #second team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
     scoreboard_values["team2"] = inp.capitalize()
@@ -103,26 +103,26 @@ def new_start():
 
 
 def format_scoreboard_values():
-    if len(scoreboard_values["team1"]) == 2:  #for 2 letter team names
+    if len(scoreboard_values["team1"]) == 2: #for 2 letter team names
         scoreboard_display_values["team1"] = " " + scoreboard_values["team1"]
     else:
         scoreboard_display_values["team1"] = scoreboard_values["team1"]
 
-    if len(scoreboard_values["team2"]) == 2:  #for 2 letter team names
+    if len(scoreboard_values["team2"]) == 2: #for 2 letter team names
         scoreboard_display_values["team2"] = " " + scoreboard_values["team2"]
     else:
         scoreboard_display_values["team2"] = scoreboard_values["team2"]
 
-    if scoreboard_values["score1"] < 10:  #for scores less than 10
+    if scoreboard_values["score1"] < 10: #for scores less than 10
         scoreboard_display_values["score1"] = str(scoreboard_values["score1"]) + " "
     else:
         scoreboard_display_values["score1"] = str(scoreboard_values["score1"])
-    if scoreboard_values["score2"] < 10:  #for scores less than 10
+    if scoreboard_values["score2"] < 10: #for scores less than 10
         scoreboard_display_values["score2"] = str(scoreboard_values["score2"]) + " "
     else:
         scoreboard_display_values["score2"] = str(scoreboard_values["score2"])
 
-    if scoreboard_values["inning_num"] < 10:  #for inning_nums less than 10
+    if scoreboard_values["inning_num"] < 10: #for inning_nums less than 10
         scoreboard_display_values["inning_num"] = str(scoreboard_values["inning_num"]) + " "
     else:
         scoreboard_display_values["inning_num"] = str(scoreboard_values["inning_num"])
@@ -138,32 +138,32 @@ def format_scoreboard_values():
     elif scoreboard_values["inning_part"] == 4:
         scoreboard_display_values["inning_part"] = "End"
 
-    scoreboard_display_values["balls"] = str(scoreboard_values["balls"])  #for balls, strikes and fouls
+    scoreboard_display_values["balls"] = str(scoreboard_values["balls"]) #for balls, strikes and fouls
     scoreboard_display_values["strikes"] = str(scoreboard_values["strikes"])
     scoreboard_display_values["fouls"] = str(scoreboard_values["fouls"])
 
-    scoreboard_display_values["outs"] = ""  #for outs
+    scoreboard_display_values["outs"] = "" #for outs
     for i in range(scoreboard_values["outs"]):
         scoreboard_display_values["outs"] += "● "
     while len(scoreboard_display_values["outs"]) < 5:
         scoreboard_display_values["outs"] += "○ "
     scoreboard_display_values["outs"] = scoreboard_display_values["outs"][0:5]
 
-    if scoreboard_values["b1"]:  #for b1
+    if scoreboard_values["b1"]: #for b1
         scoreboard_display_values["b1"] = "●"
     else:
         scoreboard_display_values["b1"] = "○"
-    if scoreboard_values["b2"]:  #for b2
+    if scoreboard_values["b2"]: #for b2
         scoreboard_display_values["b2"] = "●"
     else:
         scoreboard_display_values["b2"] = "○"
-    if scoreboard_values["b3"]:  #for b3
+    if scoreboard_values["b3"]: #for b3
         scoreboard_display_values["b3"] = "●"
     else:
         scoreboard_display_values["b3"] = "○"
 
 
-def display_scoreboard():  #reprint the scoreboard
+def display_scoreboard(): #reprint the scoreboard
     txt = "┏━━━━━━━┯━━━━━┯━━━━━┯━━━┓\n┃{}: {}│{}-{}-{}│  {}  │{}┃\n┃{}: {}│{}│{}   {}│ {}┃\n┗━━━━━━━┷━━━━━┷━━━━━┷━━━┛"
     print(
         txt.format(
@@ -184,16 +184,16 @@ def display_scoreboard():  #reprint the scoreboard
     )
 
 
-def get_user_change(param):  #inspect the user input and do an according action
-    if scoreboard_values["inning_part"] not in [1, 3,]:  #checks if the inning is not in play
+def get_user_change(param): #inspect the user input and do an according action
+    if scoreboard_values["inning_part"] not in [1, 3,]: #checks if the inning is not in play
         if param == "a":
-            if scoreboard_values["inning_num"] == 0:  #start the game
+            if scoreboard_values["inning_num"] == 0: #start the game
                 scoreboard_values["inning_part"] = 1
                 scoreboard_values["inning_num"] = 1
-            elif scoreboard_values["inning_part"] in [2, 4]:  #advance the inning
+            elif scoreboard_values["inning_part"] in [2, 4]: #advance the inning
                 scoreboard_values["inning_part"] += 1
                 process_change("advance_inning")
-        elif param == "e":  #exit
+        elif param == "e": #exit
             inp = input("Exit? (y to confirm): ")
             if inp == "y":
                 exit()
@@ -201,11 +201,11 @@ def get_user_change(param):  #inspect the user input and do an according action
                 return
 
         return
-    if param == "s":  #strike
+    if param == "s": #strike
         scoreboard_values["strikes"] += 1
         process_change("strikes")
 
-    elif param == "b":  #ball
+    elif param == "b": #ball
         scoreboard_values["balls"] += 1
         process_change("balls")
 
@@ -215,17 +215,17 @@ def get_user_change(param):  #inspect the user input and do an according action
             scoreboard_values["strikes"] += 1
         process_change("fouls")
 
-    elif param == "o":  #out
+    elif param == "o": #out
         scoreboard_values["outs"] += 1
         process_change("outs")
 
-    elif param == "hr":  #homerun
+    elif param == "hr": #homerun
         process_change("homerun")
 
-    elif param == "ba":  #runner moved
+    elif param == "ba": #runner moved
         process_change("base_advancement")
 
-    elif param == "e":  #exit
+    elif param == "e": #exit
         inp = input("Exit? (y to confirm): ")
         if inp == "y":
             process_change("end")
@@ -236,12 +236,12 @@ def get_user_change(param):  #inspect the user input and do an according action
 
 
 def process_change(change):
-    if change == "strikes":  #strike
+    if change == "strikes": #strike
         if scoreboard_values["strikes"] == 3:
             scoreboard_values["outs"] += 1
             process_change("outs")
 
-    elif change == "balls":  #ball
+    elif change == "balls": #ball
         if scoreboard_values["balls"] == 4:
             scoreboard_values["balls"] = 0
             process_change("walk")
@@ -251,7 +251,7 @@ def process_change(change):
             scoreboard_values["outs"] += 1
             process_change("outs")
 
-    elif change == "outs":  #out
+    elif change == "outs": #out
         scoreboard_values["balls"] = 0
         scoreboard_values["strikes"] = 0
         scoreboard_values["fouls"] = 0
@@ -259,7 +259,7 @@ def process_change(change):
             scoreboard_values["inning_part"] += 1
             process_change("advance_inning")
 
-    elif change == "homerun":  #homerun
+    elif change == "homerun": #homerun
         temp = 1
         if scoreboard_values["b1"]:
             temp += 1
@@ -274,7 +274,7 @@ def process_change(change):
         scoreboard_values["balls"] = 0
         scoreboard_values["strikes"] = 0
 
-    elif change == "base_advancement":  #runner moved
+    elif change == "base_advancement": #runner moved
         inp = input()
         if inp == "0":
             inp = input()
@@ -349,7 +349,7 @@ def process_change(change):
                 return
             scoreboard_values["b3"] = False
 
-    elif change == "advance_inning":  #advance the inning
+    elif change == "advance_inning": #advance the inning
         scoreboard_values["b1"] = False
         scoreboard_values["b2"] = False
         scoreboard_values["b3"] = False
@@ -389,7 +389,7 @@ def process_change(change):
             return
 
 
-def add_score(value):  #add the score to the team
+def add_score(value): #add the score to the team
     if scoreboard_values["inning_part"] == 1:
         scoreboard_values["score1"] += value
     elif scoreboard_values["inning_part"] == 3:
@@ -403,13 +403,13 @@ inp = input("Start game from where? (p/f/n)? ")
 if inp == "p":
     preset_start()
 elif inp == "f":
-    inp = input("First team: ")  #first team
+    inp = input("First team: ") #first team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
     txt = inp.capitalize()
     txt += " vs "
 
-    inp = input("Second team: ")  #second team
+    inp = input("Second team: ") #second team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
     txt += inp.capitalize()
