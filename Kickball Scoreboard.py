@@ -8,12 +8,12 @@ def preset_start():
     inp = input("First team: ")  # first team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
-    scoreboard_values["team1"] = inp
+    scoreboard_values["team1"] = inp.capitalize()
 
     inp = input("Second team: ")  # second team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
-    scoreboard_values["team2"] = inp
+    scoreboard_values["team2"] = inp.capitalize()
 
     txt = "{}'s Score: "  # first team's score
     inp = int(input(txt.format(scoreboard_values["team1"])))
@@ -88,12 +88,12 @@ def new_start():
     inp = input("First team: ")  # first team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
-    scoreboard_values["team1"] = inp
+    scoreboard_values["team1"] = inp.capitalize()
 
     inp = input("Second team: ")  # second team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
-    scoreboard_values["team2"] = inp
+    scoreboard_values["team2"] = inp.capitalize()
 
     scoreboard_values["score1"] = 0
     scoreboard_values["score2"] = 0
@@ -200,13 +200,13 @@ def get_user_change(param):  # inspect the user input and do an according action
                 scoreboard_values["inning_part"] += 1
                 process_change("advance_inning")
         elif param == "e":  # exit
-            inp = input("Exit? (y/n): ")
+            inp = input("Exit? (y to confirm): ")
             if inp == "y":
                 exit()
             else:
-                return False
+                return
 
-        return False
+        return
     if param == "s":  # strike
         scoreboard_values["strikes"] += 1
         process_change("strikes")
@@ -239,9 +239,9 @@ def get_user_change(param):  # inspect the user input and do an according action
         if inp == "y":
             process_change("end")
         else:
-            return False
+            return
     else:
-        return False
+        return
 
 
 def process_change(change):
@@ -314,14 +314,14 @@ def process_change(change):
                 if not (scoreboard_values["b1"] or scoreboard_values["b2"] or scoreboard_values["b3"]):
                     add_score(1)
             else:
-                return False
+                return
             scoreboard_values["balls"] = 0
             scoreboard_values["strikes"] = 0
             scoreboard_values["fouls"] = 0
 
         elif inp == "1":
             if not (scoreboard_values["b1"]):
-                return False
+                return
             inp = input()
             if inp == "2":
                 if not (scoreboard_values["b2"]):
@@ -337,12 +337,12 @@ def process_change(change):
                 scoreboard_values["outs"] += 1
                 process_change("outs")
             else:
-                return False
+                return
             scoreboard_values["b1"] = False
 
         elif inp == "2":
             if not (scoreboard_values["b2"]):
-                return False
+                return
             inp = input()
             if inp == "3":
                 if not (scoreboard_values["b3"]):
@@ -355,12 +355,12 @@ def process_change(change):
                 scoreboard_values["outs"] += 1
                 process_change("outs")
             else:
-                return False
+                return
             scoreboard_values["b2"] = False
 
         elif inp == "3":
             if not (scoreboard_values["b3"]):
-                return False
+                return
             inp = input()
             if inp == "4":
                 add_score(1)
@@ -369,7 +369,7 @@ def process_change(change):
                 scoreboard_values["outs"] += 1
                 process_change("outs")
             else:
-                return False
+                return
             scoreboard_values["b3"] = False
 
     elif change == "advance_inning":  # advance the inning
@@ -384,22 +384,32 @@ def process_change(change):
         inp = input("Save game to file to continue later? ")
         if inp == "y":
             txt = "{} vs {}.txt"
-            txt.format(scoreboard_values["team1"], scoreboard_values["team2"])
-            file = open(txt, "w")
+            file = open(txt.format(scoreboard_values["team1"], scoreboard_values["team2"]), "w")
             file.write(str(scoreboard_values))
             file.close()
             exit()
         elif inp == "n":
             format_scoreboard_values()
             display_scoreboard()
-            txt = "Final. {} wins"
+            if scoreboard_values["inning_part"] in [1, 2]:
+                if scoreboard_values["score1"] >= scoreboard_values["score2"]:
+                    txt = "{} needs to kick before teams' plays can be even. End anyway? "
+                    inp = input(txt.format(scoreboard_values["team2"]))
+                    if inp == "y":
+                        pass
+                    else:
+                        return
+            
+            txt = "Final. {} wins."
             if scoreboard_values["score1"] > scoreboard_values["score2"]:
                 print(txt.format(scoreboard_values["team1"]))
-            else:
+            elif scoreboard_values["score2"] > scoreboard_values["score1"]:
                 print(txt.format(scoreboard_values["team2"]))
+            else:
+                print("Final. Tie.")
             exit()
         else:
-            return False
+            return
 
 
 def add_score(value):  # add the score to the team
@@ -411,7 +421,7 @@ def add_score(value):  # add the score to the team
 
 scoreboard_values = {}
 scoreboard_display_values = {}
-inp = input("'Preset' or 'Newgame'? (p/n/f): ")
+inp = input("Start game from where? (p/f/n)? ")
 
 if inp == "p":
     preset_start()
@@ -419,13 +429,13 @@ elif inp == "f":
     inp = input("First team: ")  # first team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
-    txt = inp
+    txt = inp.capitalize()
     txt += " vs "
 
     inp = input("Second team: ")  # second team
     if len(inp) not in [2, 3]:
         raise ValueError("Expected length of 2 or 3")
-    txt += inp
+    txt += inp.capitalize()
     txt += ".txt"
     try:
         file = open(txt, "r")
@@ -437,7 +447,7 @@ elif inp == "f":
 elif inp == "n":
     new_start()
 else:
-    raise ValueError("Expected ['p', 'n', 'f']")
+    raise ValueError("Expected p, f, or n")
 
 while True:
     format_scoreboard_values()
