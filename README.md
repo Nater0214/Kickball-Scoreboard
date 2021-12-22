@@ -4,11 +4,11 @@ This is a simple (not simple) program that displays a kickball scoreboard, the o
 
 ## How to use:
 ### On startup, the user will be greeted with a prompt.
-###### p:
+##### p:
 Preset; For games that have already started.
-###### f:
+##### f:
 File; Loads a saved game from a file. (More on this later)
-###### n:
+##### n:
 New; Starts a new game.
 
 If none of these options are input, an exception will be raised.
