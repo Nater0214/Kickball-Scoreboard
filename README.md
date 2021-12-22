@@ -37,10 +37,10 @@ If none of these options are input, an exception will be raised.
   - Foul; Adds a foul to the count
 - o:
   - Out; Adds an out  
-  - **_Only_ use this for catch-outs, tag, and force-outs where the runner was _not originally on base_. Strikeouts are done automatically, and outs on base are done later.**
+  - **_Only use this for catch-outs, tag, and force-outs where the runner was not originally on base._ Strikeouts are done automatically, and outs on base are done later.**
 - hr:
   - Homerun; Scores a homerun  
-**Adds all points automatically**
+  - **Adds all points automatically**
 - ba:
   - Base advancement; Advance a runner on base  
   - After using this option, 2 more blank inputs will follow, assuming the user input correct information. Here are the steps:  
