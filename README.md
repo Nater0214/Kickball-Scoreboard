@@ -1,15 +1,15 @@
 # Kickball Scoreboard
 This is a simple (not simple) program that displays a kickball scoreboard, the original being in console, and version 2 being in a gui (I'm still working on this one.)
-This uses standard FAST ground rules for plays. This is not a manual on how to play kickball.
-## How to use:
+**This uses standard FAST ground rules for plays. This is not a manual on how to play kickball.**
 
-On startup, the user will be greeted with a prompt.
-p:
-    Preset; For games that have already started.
-f:
-    File; Loads a saved game from a file. (More on this later)
-n:
-    New; Starts a new game.
+## How to use:
+### On startup, the user will be greeted with a prompt.
+###### p:
+Preset; For games that have already started.
+###### f:
+File; Loads a saved game from a file. (More on this later)
+###### n:
+New; Starts a new game.
 
 If none of these options are input, an exception will be raised.
 
