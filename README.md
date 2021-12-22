@@ -10,24 +10,24 @@ Preset; For games that have already started.
 File; Loads a saved game from a file. (More on this later)
 ##### n:
 New; Starts a new game.
-<br>  
+
 If none of these options are input, an exception will be raised.
 
-Note: Team names are expected to be 2 or 3 characters. These names will automatically be capitalized.
+**Note: Team names are expected to be 2 or 3 characters. These names will automatically be capitalized.**
 
-After filling in all of thses prompts, a scoreboard will be displayed. There is an input waiting for user input. You can put different things in the input to do different things. Here they are:
-a:
-    Advance; Advance the inning
-    Used to start the game when the new option is used at startup.
-    Used in other cases to move from the middle or end of an inning.
-e:
-    Exit; Stop the program, giving the user options on what to do.
-    After confirming the exit, the user has the choice to save the game to a file, where they can then use the file option on startup to load that game.
-    If the user chooses to not save the game to a file, the game will end.
-    If it is unfair to the second team, the user will be alerted of this, and have the option to not exit.
-    If the user does choose to end the game, the final board will be printed, along with a statement stating who won.
+### After filling in all of thses prompts, a scoreboard will be displayed. There is an input waiting for user input. You can put different things in the input to do different things. Here they are:
+##### a:
+Advance; Advance the inning  
+Used to start the game when the new option is used at startup.  
+Used in other cases to move from the middle or end of an inning.
+##### e:
+Exit; Stop the program, giving the user options on what to do.  
+After confirming the exit, the user has the choice to save the game to a file, where they can then use the file option on startup to load that game.  
+If the user chooses to not save the game to a file, the game will end.  
+If it is unfair to the second team, the user will be alerted of this, and have the option to not exit.  
+If the user does choose to end the game, the final board will be printed, along with a statement stating who won.
 
-All further options can only be used in the top and bottom of an inning
+#### All further options can only be used in the top and bottom of an inning
 
 s:
     Strike; Adds a strike
