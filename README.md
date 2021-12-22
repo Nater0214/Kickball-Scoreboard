@@ -29,15 +29,15 @@ If the user does choose to end the game, the final board will be printed, along 
 
 #### All further options can only be used in the top and bottom of an inning
 
-s:
-    Strike; Adds a strike
-b:
-    Ball; Adds a ball to the count
-f:
-    Foul; Adds a foul to the count
-o:
-    Out; Adds an out
-    Only use this for catch-outs and tag/force-outs where the runner was not originally on base. Strikeouts are done automatically, and outs on base are done later.
+##### s:
+Strike; Adds a strike
+##### b:
+Ball; Adds a ball to the count
+##### f:
+Foul; Adds a foul to the count
+##### o:
+Out; Adds an out  
+**_Only_ use this for catch-outs, tag, and force-outs where the runner was _not originally on base_. Strikeouts are done automatically, and outs on base are done later.**
 hr:
     Homerun; Scores a homerun
     Adds all points automatically
