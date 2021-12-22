@@ -1,6 +1,7 @@
+# Kickball Scoreboard
 This is a simple (not simple) program that displays a kickball scoreboard, the original being in console, and version 2 being in a gui (I'm still working on this one.)
 This uses standard FAST ground rules for plays. This is not a manual on how to play kickball.
-How to use:
+## How to use:
 
 On startup, the user will be greeted with a prompt.
 p:
