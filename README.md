@@ -10,7 +10,7 @@ Preset; For games that have already started.
 File; Loads a saved game from a file. (More on this later)
 ##### n:
 New; Starts a new game.
-<br>
+<br>  
 If none of these options are input, an exception will be raised.
 
 Note: Team names are expected to be 2 or 3 characters. These names will automatically be capitalized.
