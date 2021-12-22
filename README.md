@@ -45,5 +45,5 @@ Adds all points automatically
 Base advancement; Advance a runner on base  
 After using this option, 2 more blank inputs will follow, assuming the user input correct information. Here are the steps:  
 1. Input the starting base. 0 is used for a kicker running after they kicked.
-2. Input the destination base. 4 is used for a runner getting home. The points will automatically be added. Use '!' instead to take a runner on the before said base out.
+2. Input the destination base. 4 is used for a runner getting home. The points will automatically be added. Use '!' instead to take a runner on the before said base out.  
 **_Runners can not go over each other. Do the operations with higher numbered bases first._ For example, if runners on 1st and 2nd advanced, advance 2nd to 3rd before advancing 1st to 2nd.**
