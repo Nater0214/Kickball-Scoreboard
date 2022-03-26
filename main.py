@@ -4,7 +4,7 @@
 
 # Modules
 import scoreboard
-import start
+from start import start
 
 
-start.start()
+start()
