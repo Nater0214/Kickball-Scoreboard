@@ -3,7 +3,6 @@
 
 
 # Modules
-import scoreboard
 from start import start
 
 
