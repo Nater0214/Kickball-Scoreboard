@@ -38,6 +38,9 @@ If none of these options are input, an exception will be raised.
 - o:
   - Out; Adds an out  
   - **_Only use this for catch-outs, tag, and force-outs where the runner was not originally on base._ Strikeouts are done automatically, and outs on base are done later.**
+- w:
+  - Walk; Walks the player from home
+  - **_This is for intentional walks._ Ball walks are done automatically**
 - hr:
   - Homerun; Scores a homerun  
   - **Adds all points automatically**
