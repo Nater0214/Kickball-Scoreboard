@@ -2,7 +2,8 @@
 # The main file for this mess
 
 
-# Modules
+# Imports
+import scoreboard
 from start import start
 
 scoreboard.values = start()
