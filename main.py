@@ -5,5 +5,6 @@
 # Modules
 from start import start
 
+scoreboard.values = start()
 
 start()

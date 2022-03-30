@@ -6,8 +6,7 @@
 from os import system as cmdline
 from inputloop import inputloop
 
-import scoreboard
-
+from scoreboard import values as scoreboard_values
 
 # Methods
 def start():
@@ -20,47 +19,48 @@ def start():
     if inp == 'p':
         _preset()
 
+    return scoreboard_values
 
 
 def __preset():
     """Start from an already started game"""
 
     # Team names
-    scoreboard.values.team1 = inputloop("First team", ':', 'len', (2, 3)).capitalize()
-    scoreboard.values.team2 = inputloop("Second team", ':', 'len', (2, 3)).capitalize()
+    scoreboard_values.team1 = inputloop("First team", ':', 'len', (2, 3)).capitalize()
+    scoreboard_values.team2 = inputloop("Second team", ':', 'len', (2, 3)).capitalize()
 
     # Scores
-    scoreboard.values.score1 = inputloop(f"{scoreboard.values.team1}'s score", ':', 'int', ('>=', 0))
-    scoreboard.values.score2 = inputloop(f"{scoreboard.values.team2}'s score", ':', 'int', ('>=', 0))
+    scoreboard_values.score1 = inputloop(f"{scoreboard_values.team1}'s score", ':', 'int', ('>=', 0))
+    scoreboard_values.score2 = inputloop(f"{scoreboard_values.team2}'s score", ':', 'int', ('>=', 0))
 
     # Innings
-    scoreboard.values.inning_num = inputloop("Inning", ':', 'int', ('>=', 1))
+    scoreboard_values.inning_num = inputloop("Inning", ':', 'int', ('>=', 1))
     inp = inputloop("Inning part", ':', 'options', ('t', 'm', 'b', 'e'))
     if inp == 't':
-        scoreboard.values.inning_part = 1
+        scoreboard_values.inning_part = 1
     elif inp == 'm':
-        scoreboard.values.inning_part = 2
+        scoreboard_values.inning_part = 2
     elif inp == 'b':
-        scoreboard.values.inning_part = 3
+        scoreboard_values.inning_part = 3
     elif inp == 'e':
-        scoreboard.values.inning_part = 4
+        scoreboard_values.inning_part = 4
     
-    if scoreboard.values.inning_part in (2, 4):
+    if scoreboard_values.inning_part in (2, 4):
         return
     
     # Balls, strikes, fouls, and outs
-    scoreboard.values.balls = inputloop("Balls", ':', 'range', (0, 3))
-    scoreboard.values.strikes = inputloop("Strikes", ':', 'range', (0, 2))
-    scoreboard.values.fouls = inputloop("Fouls", ':', 'range', (0, 3))
-    scoreboard.values.outs = inputloop("Outs", ':', 'range', (0, 2))
+    scoreboard_values.balls = inputloop("Balls", ':', 'range', (0, 3))
+    scoreboard_values.strikes = inputloop("Strikes", ':', 'range', (0, 2))
+    scoreboard_values.fouls = inputloop("Fouls", ':', 'range', (0, 3))
+    scoreboard_values.outs = inputloop("Outs", ':', 'range', (0, 2))
 
     # Bases
     inp = inputloop("Base 1", ':', 'options', ('y', 'n'))
     if inp == 'y':
-        scoreboard.values.b1 = True
+        scoreboard_values.b1 = True
     inp = inputloop("Base 2", ':', 'options', ('y', 'n'))
     if inp == 'y':
-        scoreboard.values.b2 = True
+        scoreboard_values.b2 = True
     inp = inputloop("Base 3", ':', 'options', ('y', 'n'))
     if inp == 'y':
         scoreboard.values.b3 = True
