@@ -3,15 +3,15 @@
 
 
 # Imports
-from os import system as cmdline
 from inputloop import inputloop
+from global_methods import *
 
 from scoreboard import values as scoreboard_values
 
 # Methods
 def start():
     """Starts the entire thing and gets things ready"""
-    cmdline('cls')
+    clear_console()
 
     print("Welcome to Kickball Scoreboard!\nYou will need to read the README file to understand this well")
     inp = inputloop("Start how?", ':', 'options', ('p', 'n', 'f'))
