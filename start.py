@@ -17,8 +17,12 @@ def start():
     inp = inputloop("Start how?", ':', 'options', ('p', 'n', 'f'))
 
     if inp == 'p':
-        _preset()
-
+        __preset()
+    elif inp == 'n':
+        __new()
+    elif inp == 'f':
+        __file()
+    
     return scoreboard_values
 
 
@@ -63,4 +67,16 @@ def __preset():
         scoreboard_values.b2 = True
     inp = inputloop("Base 3", ':', 'options', ('y', 'n'))
     if inp == 'y':
-        scoreboard.values.b3 = True
+        scoreboard_values.b3 = True
+
+
+def __new():
+    """Start a new game"""
+
+    # Team names
+    scoreboard_values.team1 = inputloop("First team", ':', 'len', (2, 3)).capitalize()
+    scoreboard_values.team2 = inputloop("Second team", ':', 'len', (2, 3)).capitalize()
+
+
+def __file():
+    print("I do not feel like writing this yet.")
