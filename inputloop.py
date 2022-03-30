@@ -3,7 +3,7 @@
 
 
 # Methods
-def inputloop(prompt: str, end: str, checkfor_type: str, checkfor: tuple = None):
+def inputloop(prompt: str, end: str, check_for_type: str, check_for: tuple = None):
     """Prompt the user for an input until criteria are met"""
     
     if check_for_type == 'options':
