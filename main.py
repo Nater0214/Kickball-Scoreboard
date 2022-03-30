@@ -8,4 +8,6 @@ from start import start
 
 scoreboard.values = start()
 
-start()
+while True: # Main loop
+    scoreboard.display()
+    inp = input()
