@@ -21,8 +21,9 @@ def start():
         _preset()
 
 
-def _preset():
-    """Start from an already started game."""
+
+def __preset():
+    """Start from an already started game"""
 
     # Team names
     scoreboard.values.team1 = inputloop("First team", ':', 'len', (2, 3)).capitalize()

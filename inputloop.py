@@ -6,19 +6,19 @@
 def inputloop(prompt: str, end: str, checkfor_type: str, checkfor: tuple = None):
     """Prompt the user for an input until criteria are met"""
     
-    if checkfor_type == 'options':
-        return _options(prompt, end, checkfor)
-    elif checkfor_type == 'len':
-        return _len(prompt, end, checkfor)
-    elif checkfor_type == 'int':
-        return _int(prompt, end, checkfor)
-    elif checkfor_type == 'range':
-        return _range(prompt, end, checkfor)
+    if check_for_type == 'options':
+        return __options(prompt, end, check_for)
+    elif check_for_type == 'len':
+        return __len(prompt, end, check_for)
+    elif check_for_type == 'int':
+        return __int(prompt, end, check_for)
+    elif check_for_type == 'range':
+        return __range(prompt, end, check_for)
     else:
         raise ValueError("Expected a valid type of item to check for")
 
 
-def _options(prompt, end, options):
+def __options(prompt, end, options):
     """Input that checks for options"""
     
     inp = ''
@@ -28,7 +28,7 @@ def _options(prompt, end, options):
     return inp
 
 
-def _len(prompt, end, lengths):
+def __len(prompt, end, lengths):
     """Input that checks until a input string is a certain length"""
 
     inp = ''
@@ -38,7 +38,7 @@ def _len(prompt, end, lengths):
     return inp
 
 
-def _int(prompt, end, requirements = None):
+def __int(prompt, end, requirements = None):
     """Input that checks for an integer"""
 
     if 'requirements' in locals():
@@ -62,7 +62,7 @@ def _int(prompt, end, requirements = None):
             inp = input(f"{prompt} (int){end}")
 
 
-def _range(prompt, end, range_):
+def __range(prompt, end, range_):
     """Input that checks for a value in a range"""
 
     range_low = range_[0]

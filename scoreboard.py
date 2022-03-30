@@ -3,7 +3,8 @@
 
 
 # Values
-class _Values:
+class __Values:
+    """Values for the scoreboard"""
     team1 = ""
     team2 = ""
 
